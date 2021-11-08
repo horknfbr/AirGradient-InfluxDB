@@ -44,6 +44,7 @@ Only needed if you enable MQTT
 Navigate to DeviceConfig.hpp tab and enable any features you would like to use. Then fill out their corresponding credentials.
 
 Once customization is complete, plug the device (esp8266) into your computer then click upload. Optionally, if you want to monitor what the device is doing, you can open Serial Monitor
+AirGradients sensor kit is quite good and reasonably affordable. This Arduino sketch allows you to integrated with a locally run InfluxDB instance. This was loosely based off of AirGradient original example with everything that wasn't required for the display removed and replaced with InfluxDB. There are a couple additional features which were added as well.
 
 ## Modifications
 
