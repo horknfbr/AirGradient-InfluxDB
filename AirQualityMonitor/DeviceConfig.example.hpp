@@ -38,7 +38,7 @@
 
 // ------ MQTT ------
 // Enables or disables MQTT
-#define ENABLE_MQTT false
+#define ENABLE_MQTT true
 
 // If MQTT is enabled, fill out information below
 #if ENABLE_MQTT
