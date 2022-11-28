@@ -356,17 +356,27 @@ void writeToDatabase() {
 
 #if ENABLE_MQTT
 void publishToMQTT() {
+	// PM2_5 value to mqtt
 	#if HAS_PM2_5
-	int PM2_5 = getPM2_5();
+	char PM2_5[6];
+	itoa(getPM2_5(), PM2_5, 10);
 	MQTT_PM2_5.setValue(PM2_5);
 	#endif
+	// CO2 value to mqtt
 	#if HAS_CO2
-	int CO2 = getCO2();
+	char CO2[7];
+	itoa(getCO2(), CO2, 10);
 	MQTT_CO2.setValue(CO2);
 	#endif
+	// Tempurature and Humidity values to mqtt
 	#if HAS_SHT
-	MQTT_temperature.setValue(getTemperature() - TEMP_OFFSET);
-	MQTT_humidity.setValue(getHumidity());
+	char Temperature[6];
+	dtostrf(getTemperature() - TEMP_OFFSET, 3, 2, Temperature);
+	MQTT_temperature.setValue(Temperature);
+
+	char Humidity[4];
+	itoa(getHumidity(), Humidity, 10);
+	MQTT_humidity.setValue(Humidity);
 	#endif
 }
 #endif
